@@ -1,0 +1,26 @@
+[Unit]
+Description=PBS's distributed currency daemon
+After=network.target
+
+[Service]
+User=pbs
+Group=pbs
+
+Type=forking
+PIDFile=/var/lib/pbsd/pbsd.pid
+
+ExecStart=/usr/bin/pbsd -daemon -pid=/var/lib/pbsd/pbsd.pid \
+          -conf=/etc/pbs/pbs.conf -datadir=/var/lib/pbsd
+
+ExecStop=-/usr/bin/pbs-cli -conf=/etc/pbs/pbs.conf \
+         -datadir=/var/lib/pbsd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

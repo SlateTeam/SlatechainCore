@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/pbs_bg.qm</file>
+        <file alias="ca">locale/pbs_ca.qm</file>
+        <file alias="cs">locale/pbs_cs.qm</file>
+        <file alias="da">locale/pbs_da.qm</file>
+        <file alias="de">locale/pbs_de.qm</file>
+        <file alias="en">locale/pbs_en.qm</file>
+        <file alias="en_US">locale/pbs_en_US.qm</file>
+        <file alias="es">locale/pbs_es.qm</file>
+        <file alias="fi">locale/pbs_fi.qm</file>
+        <file alias="fr_FR">locale/pbs_fr_FR.qm</file>
+        <file alias="it">locale/pbs_it.qm</file>
+        <file alias="ja">locale/pbs_ja.qm</file>
+        <file alias="ko_KR">locale/pbs_ko_KR.qm</file>
+        <file alias="nl">locale/pbs_nl.qm</file>
+        <file alias="pl">locale/pbs_pl.qm</file>
+        <file alias="pt">locale/pbs_pt.qm</file>
+        <file alias="pt_BR">locale/pbs_pt_BR.qm</file>
+        <file alias="ro_RO">locale/pbs_ro_RO.qm</file>
+        <file alias="ru">locale/pbs_ru.qm</file>
+        <file alias="sk">locale/pbs_sk.qm</file>
+        <file alias="sv">locale/pbs_sv.qm</file>
+        <file alias="uk">locale/pbs_uk.qm</file>
+        <file alias="zh_CN">locale/pbs_zh_CN.qm</file>
+        <file alias="zh_TW">locale/pbs_zh_TW.qm</file>
+    </qresource>
+</RCC>
