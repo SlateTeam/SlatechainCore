@@ -348,7 +348,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         // Compute final coinbase transaction.
         if (!fProofOfStake) {
-            txNew.vout[0].nValue = GetBlockValue(nHeight);
+            txNew.vout[0].nValue = GetBlockValue(pindexPrev->nHeight);
             pblock->vtx[0] = txNew;
             pblocktemplate->vTxFees[0] = -nFees;
         }
