@@ -53,10 +53,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (0, uint256("0x000005ea83637931a26809681d44224a7318846ea91914ed2672e23066d4afc0"));
+        (0, uint256("0x00000728d4bf5d90dccac8db95522d0b98ce50660741fd74d2712c6ce5106602"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1516732965, // * UNIX timestamp of last checkpoint block
+    1516792852, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
     //   (the tx=... number in the SetBestChain debug.log lines)
     250        // * estimated number of transactions per day after checkpoint
@@ -145,7 +145,7 @@ public:
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
          *
-            CBlock(hash=594346130c4e05ee2b7e87b3272df7bdf147cb79d583e0af4f36fb6ac13b9677, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=444ab5ec2a391b3d2125abb8bd3b121a8ed4705f9782526d79150f64fbac9c26, nTime=1516732965, nBits=1e0ffff0, nNonce=4462892, vtx=1)
+            CBlock(hash=c2bad1112dc327c64138546ddf57a4e27eda3d162fe1395e0d72186ed5a2e791, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=444ab5ec2a391b3d2125abb8bd3b121a8ed4705f9782526d79150f64fbac9c26, nTime=1516792852, nBits=1e0ffff0, nNonce=4281359, vtx=1)
               CTransaction(hash=444ab5ec2a, ver=1, vin.size=1, vout.size=1, nLockTime=0)
                 CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d01044c6f552e532e204e657773202620576f726c64205265706f7274204a616e2e2031392c20323031382053687574646f776e205374616e646f666620436f6e74696e756573206173205370656e64696e672042696c6c204c6f73657320537570706f727420696e207468652053656e617465)
                 CTxOut(nValue=250.00000000, scriptPubKey=031173ba859eb645cbd87b658f2dcb)
@@ -163,16 +163,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1516732965;
+        genesis.nTime = 1516792852;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 6581359;
+        genesis.nNonce = 6837474;
 
 //        MineGenesis(genesis);
 
 //        std::cout << genesis.ToString() << std::endl;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000005ea83637931a26809681d44224a7318846ea91914ed2672e23066d4afc0"));
+        assert(hashGenesisBlock == uint256("0x00000728d4bf5d90dccac8db95522d0b98ce50660741fd74d2712c6ce5106602"));
         assert(genesis.hashMerkleRoot == uint256("0x444ab5ec2a391b3d2125abb8bd3b121a8ed4705f9782526d79150f64fbac9c26"));
 
         vSeeds.push_back(CDNSSeedData("45.76.143.123", "45.76.143.123"));
