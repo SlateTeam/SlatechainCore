@@ -115,7 +115,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd pbs
+  cd pbscoin
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
