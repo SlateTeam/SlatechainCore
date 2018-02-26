@@ -135,7 +135,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 24 * 60 * 60; // PBS: 1 day
         nTargetSpacing = 5 * 60;  // PBS: 5 minutes
-        nLastPOWBlock = 17281;
+        nLastPOWBlock = 10000;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
