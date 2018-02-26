@@ -1,5 +1,5 @@
 ---
-name: "pbs-win-2.3"
+name: "pbs-win-1.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -22,12 +22,12 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/pbs-project/pbs.git"
-  "dir": "pbs"
+- "url": "https://github.com/Phoboscurrency/PBSCoin.git"
+  "dir": "pbscoin"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
-  HOSTS="x86_64-w64-mingw32 i686-w64-mingw32"
+  HOSTS="x86_64-w64-mingw32"
   CONFIGFLAGS="--enable-reduce-exports --disable-bench --disable-gui-tests"
   FAKETIME_HOST_PROGS="g++ ar ranlib nm windres strip objcopy"
   FAKETIME_PROGS="date makensis zip"
