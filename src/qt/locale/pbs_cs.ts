@@ -606,8 +606,8 @@
         <translation>Odeslat platbuna PIVX adresu</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
-        <translation>Vyžádat platbu (generování QK kódu a pbs: URIs)</translation>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
+        <translation>Vyžádat platbu (generování QK kódu a slatechain: URIs)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -809,8 +809,8 @@ MultiSend: %1</translation>
         <translation>TextPopisku</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pbs.conf).</source>
-        <translation>Ne všechny transakce budou zobrazeny. Pro zobrazení všech transackí nastavte v konfiguračním souboru (pbs.conf) txindex=1.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slatechain.conf).</source>
+        <translation>Ne všechny transakce budou zobrazeny. Pro zobrazení všech transackí nastavte v konfiguračním souboru (slatechain.conf) txindex=1.</translation>
     </message>
 </context>
 <context>
@@ -2382,7 +2382,7 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

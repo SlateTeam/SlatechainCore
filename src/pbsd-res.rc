@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "PBS"
-            VALUE "FileDescription",    "pbsd (OSS daemon/client for PBS)"
+            VALUE "CompanyName",        "SLTC"
+            VALUE "FileDescription",    "slatechaind (OSS daemon/client for SLTC)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "pbsd"
+            VALUE "InternalName",       "slatechaind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "pbsd.exe"
-            VALUE "ProductName",        "pbsd"
+            VALUE "OriginalFilename",   "slatechaind.exe"
+            VALUE "ProductName",        "slatechaind"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

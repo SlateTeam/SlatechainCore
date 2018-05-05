@@ -37,12 +37,12 @@
         <file alias="tx_input">res/icons/tx_input.png</file>
         <file alias="tx_output">res/icons/tx_output.png</file>
         <file alias="tx_inout">res/icons/tx_inout.png</file>
-        <file alias="unit_pbs">res/icons/unit_pbs.png</file>
-        <file alias="unit_mpbs">res/icons/unit_mpbs.png</file>
-        <file alias="unit_upbs">res/icons/unit_upbs.png</file>
-        <file alias="unit_tpbs">res/icons/unit_tpbs.png</file>
-        <file alias="unit_tmpbs">res/icons/unit_tmpbs.png</file>
-        <file alias="unit_tupbs">res/icons/unit_tupbs.png</file>
+        <file alias="unit_slatechain">res/icons/unit_slatechain.png</file>
+        <file alias="unit_mslatechain">res/icons/unit_mslatechain.png</file>
+        <file alias="unit_uslatechain">res/icons/unit_uslatechain.png</file>
+        <file alias="unit_tslatechain">res/icons/unit_tslatechain.png</file>
+        <file alias="unit_tmslatechain">res/icons/unit_tmslatechain.png</file>
+        <file alias="unit_tuslatechain">res/icons/unit_tuslatechain.png</file>
         <file alias="lock_closed">res/icons/lock_closed.png</file>
         <file alias="lock_open">res/icons/lock_open.png</file>
         <file alias="key">res/icons/key.png</file>
@@ -57,7 +57,7 @@
         <file alias="default">res/css/default.css</file>
     </qresource>
     <qresource prefix="/images">
-        <file alias="pbs_logo_horizontal">res/images/pbs_logo_horizontal.png</file>
+        <file alias="slatechain_logo_horizontal">res/images/slatechain_logo_horizontal.png</file>
         <file alias="downArrow">res/images/downArrow.png</file>
         <file alias="downArrow_small">res/images/downArrow_small.png</file>
         <file alias="upArrow_small">res/images/upArrow_small.png</file>

@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * PBS RPC command dispatcher.
+ * SLTC RPC command dispatcher.
  */
 class CRPCTable
 {

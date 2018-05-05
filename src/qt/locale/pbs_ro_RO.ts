@@ -180,6 +180,6 @@
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     </context>
 </TS>

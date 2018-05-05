@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += pbsd
+  bin_PROGRAMS += slatechaind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += pbs-cli pbs-tx
+  bin_PROGRAMS += slatechain-cli slatechain-tx
 endif
 
 .PHONY: FORCE
-# pbs core #
+# slatechain core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between pbsd and pbs-qt
+# server: shared between slatechaind and slatechain-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between pbsd and pbs-qt, but only linked
+# wallet: shared between slatechaind and slatechain-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -304,7 +304,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between pbsd, and pbs-qt and non-server tools
+# common: shared between slatechaind, and slatechain-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -360,7 +360,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between pbs-cli and pbs-qt
+# cli: shared between slatechain-cli and slatechain-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -370,7 +370,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-pbsd_LDADD = \
+slatechaind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -381,40 +381,40 @@ pbsd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-pbsd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+slatechaind_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-pbsd_LDADD += libbitcoin_wallet.a
+slatechaind_LDADD += libbitcoin_wallet.a
 endif
-pbsd_SOURCES = pbsd.cpp
+slatechaind_SOURCES = slatechaind.cpp
 #
 
 if TARGET_WINDOWS
-pbsd_SOURCES += pbsd-res.rc
+slatechaind_SOURCES += slatechaind-res.rc
 endif
 
-pbsd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-pbsd_CPPFLAGS = $(BITCOIN_INCLUDES)
-pbsd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+slatechaind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+slatechaind_CPPFLAGS = $(BITCOIN_INCLUDES)
+slatechaind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# pbs-cli binary #
-pbs_cli_LDADD = \
+# slatechain-cli binary #
+slatechain_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-pbs_cli_SOURCES = \
-  pbs-cli.cpp
+slatechain_cli_SOURCES = \
+  slatechain-cli.cpp
 
-pbs_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+slatechain_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# pbs-tx binary #
-pbs_tx_LDADD = \
+# slatechain-tx binary #
+slatechain_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -423,15 +423,15 @@ pbs_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-pbs_tx_SOURCES = pbs-tx.cpp
-pbs_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+slatechain_tx_SOURCES = slatechain-tx.cpp
+slatechain_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-pbs_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+slatechain_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-pbs_cli_SOURCES += pbs-cli-res.rc
+slatechain_cli_SOURCES += slatechain-cli-res.rc
 endif
-pbs_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+slatechain_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

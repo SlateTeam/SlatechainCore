@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the pbsd tests manually, launch src/test/test_pbs .
+To run the slatechaind tests manually, launch src/test/test_slatechain .
 
-To add more pbsd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more slatechaind tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the pbs-qt tests manually, launch src/qt/test/pbs-qt_test
+To run the slatechain-qt tests manually, launch src/qt/test/slatechain-qt_test
 
-To add more pbs-qt tests, add them to the `src/qt/test/` directory and
+To add more slatechain-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

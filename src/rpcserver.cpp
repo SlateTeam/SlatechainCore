@@ -219,10 +219,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop PBS server.");
+            "\nStop SLTC server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "PBS server stopping";
+    return "SLTC server stopping";
 }
 
 
@@ -299,36 +299,36 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* PBS features */
-        {"pbs", "masternode", &masternode, true, true, false},
-        {"pbs", "listmasternodes", &listmasternodes, true, true, false},
-        {"pbs", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"pbs", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"pbs", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"pbs", "masternodedebug", &masternodedebug, true, true, false},
-        {"pbs", "startmasternode", &startmasternode, true, true, false},
-        {"pbs", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"pbs", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"pbs", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"pbs", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"pbs", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"pbs", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"pbs", "mnbudget", &mnbudget, true, true, false},
-        {"pbs", "preparebudget", &preparebudget, true, true, false},
-        {"pbs", "submitbudget", &submitbudget, true, true, false},
-        {"pbs", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"pbs", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"pbs", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"pbs", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"pbs", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"pbs", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"pbs", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"pbs", "checkbudgets", &checkbudgets, true, true, false},
-        {"pbs", "mnsync", &mnsync, true, true, false},
-        {"pbs", "spork", &spork, true, true, false},
-        {"pbs", "getpoolinfo", &getpoolinfo, true, true, false},
+        /* SLTC features */
+        {"slatechain", "masternode", &masternode, true, true, false},
+        {"slatechain", "listmasternodes", &listmasternodes, true, true, false},
+        {"slatechain", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"slatechain", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"slatechain", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"slatechain", "masternodedebug", &masternodedebug, true, true, false},
+        {"slatechain", "startmasternode", &startmasternode, true, true, false},
+        {"slatechain", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"slatechain", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"slatechain", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"slatechain", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"slatechain", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"slatechain", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"slatechain", "mnbudget", &mnbudget, true, true, false},
+        {"slatechain", "preparebudget", &preparebudget, true, true, false},
+        {"slatechain", "submitbudget", &submitbudget, true, true, false},
+        {"slatechain", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"slatechain", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"slatechain", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"slatechain", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"slatechain", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"slatechain", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"slatechain", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"slatechain", "checkbudgets", &checkbudgets, true, true, false},
+        {"slatechain", "mnsync", &mnsync, true, true, false},
+        {"slatechain", "spork", &spork, true, true, false},
+        {"slatechain", "getpoolinfo", &getpoolinfo, true, true, false},
 #ifdef ENABLE_WALLET
-        {"pbs", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+        {"slatechain", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -593,16 +593,16 @@ void StartRPCThreads()
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
         uiInterface.ThreadSafeMessageBox(strprintf(
-                                             _("To use pbsd, or the -server option to pbs-qt, you must set an rpcpassword in the configuration file:\n"
+                                             _("To use slatechaind, or the -server option to slatechain-qt, you must set an rpcpassword in the configuration file:\n"
                                                "%s\n"
                                                "It is recommended you use the following random password:\n"
-                                               "rpcuser=pbsrpc\n"
+                                               "rpcuser=slatechainrpc\n"
                                                "rpcpassword=%s\n"
                                                "(you do not need to remember this password)\n"
                                                "The username and password MUST NOT be the same.\n"
                                                "If the file does not exist, create it with owner-readable-only file permissions.\n"
                                                "It is also recommended to set alertnotify so you are notified of problems;\n"
-                                               "for example: alertnotify=echo %%s | mail -s \"PBS Alert\" admin@foo.com\n"),
+                                               "for example: alertnotify=echo %%s | mail -s \"SLTC Alert\" admin@foo.com\n"),
                                              GetConfigFile().string(),
                                              EncodeBase58(&rand_pwd[0], &rand_pwd[0] + 32)),
             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::SECURE);
@@ -1053,7 +1053,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> pbs-cli " + methodname + " " + args + "\n";
+    return "> slatechain-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

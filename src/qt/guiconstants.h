@@ -13,7 +13,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* PBS GUI -- Size of icons in status bar */
+/* SLTC GUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -48,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "PBS"
-#define QAPP_ORG_DOMAIN "pbs.org"
-#define QAPP_APP_NAME_DEFAULT "PBS-Qt"
-#define QAPP_APP_NAME_TESTNET "PBS-Qt-testnet"
+#define QAPP_ORG_NAME "SLTC"
+#define QAPP_ORG_DOMAIN "slatechain.org"
+#define QAPP_APP_NAME_DEFAULT "SLTC-Qt"
+#define QAPP_APP_NAME_TESTNET "SLTC-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

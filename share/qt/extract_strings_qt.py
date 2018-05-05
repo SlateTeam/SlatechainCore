@@ -10,7 +10,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/pbsstrings.cpp"
+OUT_CPP="qt/slatechainstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -74,10 +74,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *pbs_strings[] = {\n')
+f.write('static const char UNUSED *slatechain_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("pbs-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("slatechain-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

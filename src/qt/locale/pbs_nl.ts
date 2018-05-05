@@ -606,7 +606,7 @@
         <translation>Verstuur munten naar een PIVX adres</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
         <translation>Vraag betaling aan (genereert QR-codes en PIVX: URI's)</translation>
     </message>
     <message>
@@ -805,8 +805,8 @@ MultiSend: %1</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pbs.conf).</source>
-        <translation>Niet alle transacties worden getoond. Om alle transacties te bekijken moet u txindex=1 instellen in het configuratie bestand (pbs.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slatechain.conf).</source>
+        <translation>Niet alle transacties worden getoond. Om alle transacties te bekijken moet u txindex=1 instellen in het configuratie bestand (slatechain.conf).</translation>
     </message>
 </context>
 <context>
@@ -2482,7 +2482,7 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>(default: %s)</source>
         <translation>(standaard: %s)</translation>

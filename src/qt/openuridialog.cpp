@@ -17,7 +17,7 @@ OpenURIDialog::OpenURIDialog(QWidget* parent) : QDialog(parent),
 {
     ui->setupUi(this);
 #if QT_VERSION >= 0x040700
-    ui->uriEdit->setPlaceholderText("pbs:");
+    ui->uriEdit->setPlaceholderText("slatechain:");
 #endif
 }
 
@@ -48,5 +48,5 @@ void OpenURIDialog::on_selectFileButton_clicked()
     if (filename.isEmpty())
         return;
     QUrl fileUri = QUrl::fromLocalFile(filename);
-    ui->uriEdit->setText("pbs:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
+    ui->uriEdit->setText("slatechain:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
 }

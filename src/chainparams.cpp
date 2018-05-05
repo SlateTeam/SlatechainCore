@@ -126,15 +126,15 @@ public:
         pchMessageStart[3] = 0xe9;
         vAlertPubKey = ParseHex("03a0b2d20438042d31ed87293447ddcc594a32ee27369bc71d7ca3a824e97b7fe4");
         nDefaultPort = 51572;
-        bnProofOfWorkLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000"); // PBS starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000"); // SLTC starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 24 * 60 * 60; // PBS: 1 day
-        nTargetSpacing = 5 * 60;  // PBS: 5 minutes
+        nTargetTimespan = 24 * 60 * 60; // SLTC: 1 day
+        nTargetSpacing = 5 * 60;  // SLTC: 5 minutes
         nLastPOWBlock = 10000;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
@@ -231,8 +231,8 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 24 * 60 * 60; // PBS: 1 day
-        nTargetSpacing = 5 * 60;  // PBS: 5 minutes
+        nTargetTimespan = 24 * 60 * 60; // SLTC: 1 day
+        nTargetSpacing = 5 * 60;  // SLTC: 5 minutes
         nLastPOWBlock = 200;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
@@ -248,19 +248,19 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pbs-testnet.seed.fuzzbawls.pw"));
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pbs-testnet.seed2.fuzzbawls.pw"));
+        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "slatechain-testnet.seed.fuzzbawls.pw"));
+        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "slatechain-testnet.seed2.fuzzbawls.pw"));
         vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net"));
         vSeeds.push_back(CDNSSeedData("88.198.192.110", "88.198.192.110"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet PBS addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet PBS script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet SLTC addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet SLTC script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet PBS BIP32 pubkeys start with 'DRKV'
+        // Testnet SLTC BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet PBS BIP32 prvkeys start with 'DRKP'
+        // Testnet SLTC BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet PBS BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet SLTC BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -305,8 +305,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // PBS: 1 day
-        nTargetSpacing = 1 * 60;        // PBS: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // SLTC: 1 day
+        nTargetSpacing = 1 * 60;        // SLTC: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1454124731;
         genesis.nBits = 0x207fffff;

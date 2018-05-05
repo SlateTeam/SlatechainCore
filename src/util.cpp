@@ -6,7 +6,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pbs-config.h"
+#include "config/slatechain-config.h"
 #endif
 
 #include "util.h"
@@ -105,7 +105,7 @@ std::string to_internal(const std::string&);
 
 using namespace std;
 
-//PBS only features
+//SLTC only features
 bool fMasterNode = false;
 string strMasterNodePrivKey = "";
 string strMasterNodeAddr = "";
@@ -113,7 +113,7 @@ bool fLiteMode = false;
 bool fEnableSwiftTX = true;
 int nSwiftTXDepth = 5;
 int nObfuscationRounds = 2;
-int nAnonymizePbsAmount = 1000;
+int nAnonymizeSLTCAmount = 1000;
 int nLiquidityProvider = 0;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
@@ -231,8 +231,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "pbs" is a composite category enabling all PBS-related debug output
-            if (ptrCategory->count(string("pbs"))) {
+            // "slatechain" is a composite category enabling all SLTC-related debug output
+            if (ptrCategory->count(string("slatechain"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swifttx"));
                 ptrCategory->insert(string("masternode"));
@@ -396,7 +396,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "pbs";
+    const char* pszModule = "slatechain";
 #endif
     if (pex)
         return strprintf(
@@ -417,13 +417,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-// Windows < Vista: C:\Documents and Settings\Username\Application Data\PBS
-// Windows >= Vista: C:\Users\Username\AppData\Roaming\PBS
-// Mac: ~/Library/Application Support/PBS
-// Unix: ~/.pbs
+// Windows < Vista: C:\Documents and Settings\Username\Application Data\SLTC
+// Windows >= Vista: C:\Users\Username\AppData\Roaming\SLTC
+// Mac: ~/Library/Application Support/SLTC
+// Unix: ~/.slatechain
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "PBS";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "SLTC";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -435,10 +435,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "PBS";
+    return pathRet / "SLTC";
 #else
     // Unix
-    return pathRet / ".pbs";
+    return pathRet / ".slatechain";
 #endif
 #endif
 }
@@ -485,7 +485,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "pbs.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "slatechain.conf"));
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
@@ -504,7 +504,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
-        // Create empty pbs.conf if it does not exist
+        // Create empty slatechain.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -515,7 +515,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it) {
-        // Don't overwrite existing settings so command line settings override pbs.conf
+        // Don't overwrite existing settings so command line settings override slatechain.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);
@@ -530,7 +530,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "pbsd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "slatechaind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

@@ -1,25 +1,25 @@
-# /etc/conf.d/pbsd: config file for /etc/init.d/pbsd
+# /etc/conf.d/slatechaind: config file for /etc/init.d/slatechaind
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/pbs/pbs.conf"
+#BITCOIND_CONFIGFILE="/etc/slatechain/slatechain.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/pbsd"
+#BITCOIND_PIDDIR="/var/run/slatechaind"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/pbsd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/slatechaind.pid"
 
-# Where to write pbsd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/pbsd"
+# Where to write slatechaind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/slatechaind"
 
-# User and group to own pbsd process
-#BITCOIND_USER="pbs"
-#BITCOIND_GROUP="pbs"
+# User and group to own slatechaind process
+#BITCOIND_USER="slatechain"
+#BITCOIND_GROUP="slatechain"
 
-# Path to pbsd executable
-#BITCOIND_BIN="/usr/bin/pbsd"
+# Path to slatechaind executable
+#BITCOIND_BIN="/usr/bin/slatechaind"
 
-# Nice value to run pbsd under
+# Nice value to run slatechaind under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

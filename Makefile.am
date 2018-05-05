@@ -5,9 +5,9 @@ SUBDIRS = src
 GZIP_ENV="-9n"
 export PYTHONPATH
 
-BITCOIND_BIN=$(top_builddir)/src/pbsd$(EXEEXT)
-BITCOIN_QT_BIN=$(top_builddir)/src/qt/pbs-qt$(EXEEXT)
-BITCOIN_CLI_BIN=$(top_builddir)/src/pbs-cli$(EXEEXT)
+BITCOIND_BIN=$(top_builddir)/src/slatechaind$(EXEEXT)
+BITCOIN_QT_BIN=$(top_builddir)/src/qt/slatechain-qt$(EXEEXT)
+BITCOIN_CLI_BIN=$(top_builddir)/src/slatechain-cli$(EXEEXT)
 BITCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 
 empty :=
@@ -40,9 +40,9 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/detached-sig-create.sh
 
 COVERAGE_INFO = baseline_filtered_combined.info baseline.info block_test.info \
-  leveldb_baseline.info test_pbs_filtered.info total_coverage.info \
+  leveldb_baseline.info test_slatechain_filtered.info total_coverage.info \
   baseline_filtered.info block_test_filtered.info \
-  leveldb_baseline_filtered.info test_pbs_coverage.info test_pbs.info
+  leveldb_baseline_filtered.info test_slatechain_coverage.info test_slatechain.info
 
 dist-hook:
 	-$(MAKE) -C $(top_distdir)/src/leveldb clean
@@ -174,16 +174,16 @@ leveldb_baseline_filtered.info: leveldb_baseline.info
 baseline_filtered_combined.info: leveldb_baseline_filtered.info baseline_filtered.info
 	$(LCOV) -a leveldb_baseline_filtered.info -a baseline_filtered.info -o $@
 
-test_pbs.info: baseline_filtered_combined.info
+test_slatechain.info: baseline_filtered_combined.info
 	$(MAKE) -C src/ check
-	$(LCOV) -c -d $(abs_builddir)/src -t test_pbs -o $@
+	$(LCOV) -c -d $(abs_builddir)/src -t test_slatechain -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
-test_pbs_filtered.info: test_pbs.info
+test_slatechain_filtered.info: test_slatechain.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-block_test.info: test_pbs_filtered.info
+block_test.info: test_slatechain_filtered.info
 	$(MKDIR_P) qa/tmp
 	-@TIMEOUT=15 qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
 	$(LCOV) -c -d $(abs_builddir)/src --t BitcoinJBlockTest -o $@
@@ -193,13 +193,13 @@ block_test.info: test_pbs_filtered.info
 block_test_filtered.info: block_test.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-test_pbs_coverage.info: baseline_filtered_combined.info test_pbs_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_pbs_filtered.info -o $@
+test_slatechain_coverage.info: baseline_filtered_combined.info test_slatechain_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_slatechain_filtered.info -o $@
 
-total_coverage.info:  baseline_filtered_combined.info test_pbs_filtered.info block_test_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_pbs_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+total_coverage.info:  baseline_filtered_combined.info test_slatechain_filtered.info block_test_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_slatechain_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_pbs.coverage/.dirstamp:  test_pbs_coverage.info
+test_slatechain.coverage/.dirstamp:  test_slatechain_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
@@ -207,7 +207,7 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
-cov: test_pbs.coverage/.dirstamp total.coverage/.dirstamp
+cov: test_slatechain.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
 
@@ -226,4 +226,4 @@ CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 .INTERMEDIATE: $(COVERAGE_INFO)
 
 clean-local:
-	rm -rf test_pbs.coverage/ total.coverage/ $(OSX_APP)
+	rm -rf test_slatechain.coverage/ total.coverage/ $(OSX_APP)

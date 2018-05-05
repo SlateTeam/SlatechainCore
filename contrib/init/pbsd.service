@@ -1,19 +1,19 @@
 [Unit]
-Description=PBS's distributed currency daemon
+Description=SLTC's distributed currency daemon
 After=network.target
 
 [Service]
-User=pbs
-Group=pbs
+User=slatechain
+Group=slatechain
 
 Type=forking
-PIDFile=/var/lib/pbsd/pbsd.pid
+PIDFile=/var/lib/slatechaind/slatechaind.pid
 
-ExecStart=/usr/bin/pbsd -daemon -pid=/var/lib/pbsd/pbsd.pid \
-          -conf=/etc/pbs/pbs.conf -datadir=/var/lib/pbsd
+ExecStart=/usr/bin/slatechaind -daemon -pid=/var/lib/slatechaind/slatechaind.pid \
+          -conf=/etc/slatechain/slatechain.conf -datadir=/var/lib/slatechaind
 
-ExecStop=-/usr/bin/pbs-cli -conf=/etc/pbs/pbs.conf \
-         -datadir=/var/lib/pbsd stop
+ExecStop=-/usr/bin/slatechain-cli -conf=/etc/slatechain/slatechain.conf \
+         -datadir=/var/lib/slatechaind stop
 
 Restart=always
 PrivateTmp=true

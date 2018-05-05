@@ -19,14 +19,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "PBS"
-            VALUE "FileDescription",    "PBS Core (OSS GUI client for PBS)"
+            VALUE "CompanyName",        "SLTC"
+            VALUE "FileDescription",    "SLTC Core (OSS GUI client for SLTC)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "pbs-qt"
+            VALUE "InternalName",       "slatechain-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "pbs-qt.exe"
-            VALUE "ProductName",        "PBS Core"
+            VALUE "OriginalFilename",   "slatechain-qt.exe"
+            VALUE "ProductName",        "SLTC Core"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

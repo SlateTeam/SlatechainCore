@@ -606,7 +606,7 @@
         <translation>Send mønter til en PIVX adresse</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
         <translation>Anmod om betaling (genrerer QR kode og PIVX URL)</translation>
     </message>
     <message>
@@ -813,8 +813,8 @@ Adresse: %4
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pbs.conf).</source>
-        <translation>Ikke alle transaktioner vil blive vist. For at vise alle transaktioner må De sætte "txindex=1" i konfigurationsfilen (pbs.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slatechain.conf).</source>
+        <translation>Ikke alle transaktioner vil blive vist. For at vise alle transaktioner må De sætte "txindex=1" i konfigurationsfilen (slatechain.conf).</translation>
     </message>
 </context>
 <context>
@@ -1695,9 +1695,9 @@ Kontroller adressen og prøv igen.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/pbs-project/pbs-project-translations</source>
+https://www.transifex.com/slatechain-project/slatechain-project-translations</source>
         <translation>Det valgte sprog mangler, eller oversættelsen er mangelfuld. Hjælp ved at bidrage med oversættelser her:
-https://www.transifex.com/pbs-project/pbs-project-translations</translation>
+https://www.transifex.com/slatechain-project/slatechain-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -2059,7 +2059,7 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
         <translation>Ugyldig betalingsadresse: %1</translation>
     </message>
     <message>
-        <source>Cannot start pbs: click-to-pay handler</source>
+        <source>Cannot start slatechain: click-to-pay handler</source>
         <translation>Kan ikke starte PIVX "klik for at betale" systemet</translation>
     </message>
     <message>
@@ -3835,7 +3835,7 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = beholdtx metadata. For eksempel information om kontoejer og betalngsanmodninger, 2 = drop TX metadata)</translation>
@@ -4034,10 +4034,10 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
         <translation>Dette produkt anvender software udviklet i OpenSSL projektet til brug i OpenSSL værktøjssættet &lt;https://www.openssl.org/&gt; og kryptosoftware skrevet afEric Young og UPnP software skrevet af Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use pbsd, or the -server option to pbs-qt, you must set an rpcpassword in the configuration file:
+        <source>To use slatechaind, or the -server option to slatechain-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=pbsrpc
+rpcuser=slatechainrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -4045,10 +4045,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
 </source>
-        <translation>For at bruge pbsd eller -server muligheden sammen med pbs-qt skal der angives et rpc kodeord i konfigurationsfilen:
+        <translation>For at bruge slatechaind eller -server muligheden sammen med slatechain-qt skal der angives et rpc kodeord i konfigurationsfilen:
 %s
 De anbefales at benytte følgende tilfældige kodeord
-Rpcuser=pbsrpc
+Rpcuser=slatechainrpc
 rpcpasswrd=%s
 (Det er ikke nødvendigt at huske dette kodeord)
 Brugernavn og kodeord MÅ IKKE VÆRE ENS!

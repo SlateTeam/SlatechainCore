@@ -1292,7 +1292,7 @@
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>Error</source>
         <translation>Error</translation>

@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/pbs/.pbs" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/pbs/.pbs"
+if [ -d "/var/lib/slatechain/.slatechain" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/slatechain/.slatechain"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/pbsd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/slatechaind"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/pbs/pbs.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/pbsd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/pbsd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/slatechain/slatechain.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/slatechaind}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/slatechaind.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-pbs}
-BITCOIND_GROUP=${BITCOIND_GROUP:-pbs}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/pbsd}
+BITCOIND_USER=${BITCOIND_USER:-slatechain}
+BITCOIND_GROUP=${BITCOIND_GROUP:-slatechain}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/slatechaind}
 
-name="PBS Core Daemon"
-description="PBS crypto-currency p2p network daemon"
+name="SLTC Core Daemon"
+description="SLTC crypto-currency p2p network daemon"
 
-command="/usr/bin/pbsd"
+command="/usr/bin/slatechaind"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run pbsd."
+		eerror "ERROR: You must set a secure rpcpassword to run slatechaind."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -78,7 +78,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"PBS Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"SLTC Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

@@ -591,8 +591,8 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
         <translation>Skicka mynt till en PIVX adress</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
-        <translation>Begär betalning (genererar QR kod och pbs: URls)</translation>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
+        <translation>Begär betalning (genererar QR kod och slatechain: URls)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -1365,7 +1365,7 @@ Skriv in en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna d
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>Error</source>
         <translation>Fel</translation>

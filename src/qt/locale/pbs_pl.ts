@@ -526,8 +526,8 @@
         <translation>Wyślij monety do adresu PIVX</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
-        <translation>Zarządaj płatności (generuje kod QR i pbs:URI)</translation>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
+        <translation>Zarządaj płatności (generuje kod QR i slatechain:URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -1225,9 +1225,9 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/pbs-project/pbs-project-translations</source>
+https://www.transifex.com/slatechain-project/slatechain-project-translations</source>
         <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-https://www.transifex.com/pbs-project/pbs-project-translations </translation>
+https://www.transifex.com/slatechain-project/slatechain-project-translations </translation>
     </message>
     <message>
         <source>Connect to the PIVX network through a SOCKS5 proxy.</source>
@@ -2024,7 +2024,7 @@ https://www.transifex.com/pbs-project/pbs-project-translations </translation>
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>Error</source>
         <translation>Błąd</translation>

@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pbs-config.h"
+#include "config/slatechain-config.h"
 #endif
 
 #include "util.h"

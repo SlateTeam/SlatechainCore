@@ -610,8 +610,8 @@
         <translation>Send coins to a PIVX address</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
-        <translation>Request payments (generates QR codes and pbs: URIs)</translation>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
+        <translation>Request payments (generates QR codes and slatechain: URIs)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -837,8 +837,8 @@ Address: %4
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pbs.conf).</source>
-        <translation>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pbs.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slatechain.conf).</source>
+        <translation>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slatechain.conf).</translation>
     </message>
 </context>
 <context>
@@ -1719,9 +1719,9 @@ Please check the address and try again.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/pbs-project/pbs-project-translations</source>
+https://www.transifex.com/slatechain-project/slatechain-project-translations</source>
         <translation>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/pbs-project/pbs-project-translations</translation>
+https://www.transifex.com/slatechain-project/slatechain-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -2092,8 +2092,8 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
         <translation>Invalid payment address %1</translation>
     </message>
     <message>
-        <source>Cannot start pbs: click-to-pay handler</source>
-        <translation>Cannot start pbs: click-to-pay handler</translation>
+        <source>Cannot start slatechain: click-to-pay handler</source>
+        <translation>Cannot start slatechain: click-to-pay handler</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid PIVX address or malformed URI parameters.</source>
@@ -3884,7 +3884,7 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</translation>
@@ -4082,10 +4082,10 @@ https://www.transifex.com/pbs-project/pbs-project-translations</translation>
         <translation>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use pbsd, or the -server option to pbs-qt, you must set an rpcpassword in the configuration file:
+        <source>To use slatechaind, or the -server option to slatechain-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=pbsrpc
+rpcuser=slatechainrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -4093,10 +4093,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
 </source>
-        <translation>To use pbsd, or the -server option to pbs-qt, you must set an rpcpassword in the configuration file:
+        <translation>To use slatechaind, or the -server option to slatechain-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=pbsrpc
+rpcuser=slatechainrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.

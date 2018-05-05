@@ -87,9 +87,9 @@ obfuscation-relay.cpp
 obfuscation-relay.h
 obfuscation.cpp
 obfuscation.h
-pbs-cli.cpp
-pbs-tx.cpp
-pbsd.cpp
+slatechain-cli.cpp
+slatechain-tx.cpp
+slatechaind.cpp
 pow.cpp
 pow.h
 primitives/block.cpp
@@ -159,8 +159,8 @@ qt/paymentserver.cpp
 qt/paymentserver.h
 qt/peertablemodel.cpp
 qt/peertablemodel.h
-qt/pbs.cpp
-qt/pbsstrings.cpp
+qt/slatechain.cpp
+qt/slatechainstrings.cpp
 qt/platformstyle.cpp
 qt/platformstyle.h
 qt/qvalidatedlineedit.cpp

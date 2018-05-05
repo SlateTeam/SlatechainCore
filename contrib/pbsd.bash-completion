@@ -1,12 +1,12 @@
-# bash programmable completion for pbsd(1) and pbs-cli(1)
+# bash programmable completion for slatechaind(1) and slatechain-cli(1)
 # Copyright (c) 2012,2014 Christian von Roques <roques@mti.ag>
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-have pbsd && {
+have slatechaind && {
 
-# call $pbsd for RPC
-_pbs_rpc() {
+# call $slatechaind for RPC
+_slatechain_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
     for i in ${COMP_LINE}; do
@@ -16,23 +16,23 @@ _pbs_rpc() {
                 ;;
         esac
     done
-    $pbsd "${rpcargs[@]}" "$@"
+    $slatechaind "${rpcargs[@]}" "$@"
 }
 
-# Add pbs accounts to COMPREPLY
-_pbs_accounts() {
+# Add slatechain accounts to COMPREPLY
+_slatechain_accounts() {
     local accounts
-    accounts=$(_pbs_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
+    accounts=$(_slatechain_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_pbsd() {
+_slatechaind() {
     local cur prev words=() cword
-    local pbsd
+    local slatechaind
 
-    # save and use original argument to invoke pbsd
-    # pbsd might not be in $PATH
-    pbsd="$1"
+    # save and use original argument to invoke slatechaind
+    # slatechaind might not be in $PATH
+    slatechaind="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -53,7 +53,7 @@ _pbsd() {
     if ((cword > 3)); then
         case ${words[cword-3]} in
             addmultisigaddress)
-                _pbs_accounts
+                _slatechain_accounts
                 return 0
                 ;;
             getbalance|gettxout|importaddress|importprivkey|listreceivedbyaccount|listreceivedbyaddress|listsinceblock)
@@ -74,7 +74,7 @@ _pbsd() {
                 return 0
                 ;;
             move|setaccount)
-                _pbs_accounts
+                _slatechain_accounts
                 return 0
                 ;;
         esac
@@ -90,7 +90,7 @@ _pbsd() {
             return 0
             ;;
         getaccountaddress|getaddressesbyaccount|getbalance|getnewaddress|getreceivedbyaccount|listtransactions|move|sendfrom|sendmany)
-            _pbs_accounts
+            _slatechain_accounts
             return 0
             ;;
     esac
@@ -114,12 +114,12 @@ _pbsd() {
 
             # only parse --help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($pbsd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($slatechaind --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
             if [[ -z "$cur" || "$cur" =~ ^[a-z] ]]; then
-                commands=$(_pbs_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
+                commands=$(_slatechain_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
             fi
 
             COMPREPLY=( $( compgen -W "$helpopts $commands" -- "$cur" ) )
@@ -133,7 +133,7 @@ _pbsd() {
     esac
 }
 
-complete -F _pbsd pbsd pbs-cli
+complete -F _slatechaind slatechaind slatechain-cli
 }
 
 # Local variables:

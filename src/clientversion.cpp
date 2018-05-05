@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both pbsd and pbs-qt, to make it harder for attackers to
+ * for both slatechaind and slatechain-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("PBS Core");
+const std::string CLIENT_NAME("SLTC Core");
 
 /**
  * Client version number

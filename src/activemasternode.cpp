@@ -8,7 +8,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 5000 PBS input and register on the network
+// Bootup the Masternode, look for a 5000 SLTC input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {

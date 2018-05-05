@@ -1,6 +1,6 @@
 [Protocol]
-exec=pbs-qt '%u'
-protocol=pbs
+exec=slatechain-qt '%u'
+protocol=slatechain
 input=none
 output=none
 helper=true

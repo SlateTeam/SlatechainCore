@@ -74,7 +74,7 @@ enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
     ONLY_NOT5000IFMN = 3,
-    ONLY_NONDENOMINATED_NOT5000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 PBS at the same time
+    ONLY_NONDENOMINATED_NOT5000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 SLTC at the same time
     ONLY_5000 = 5                        // find masternode outputs including locked ones (use with caution)
 };
 

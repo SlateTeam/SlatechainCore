@@ -1,35 +1,35 @@
-PBS Core
+SLTC Core
 =====================
 
 Setup
 ---------------------
-[PBS Core](http://pbs.org/wallet) is the original PBS client and it builds the backbone of the network. However, it downloads and stores the entire history of PBS transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[SLTC Core](http://slatechain.org/wallet) is the original SLTC client and it builds the backbone of the network. However, it downloads and stores the entire history of SLTC transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run PBS on your native platform.
+The following are some helpful notes on how to run SLTC on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/pbs-qt (GUI, 32-bit) or bin/32/pbsd (headless, 32-bit)
-- bin/64/pbs-qt (GUI, 64-bit) or bin/64/pbsd (headless, 64-bit)
+- bin/32/slatechain-qt (GUI, 32-bit) or bin/32/slatechaind (headless, 32-bit)
+- bin/64/slatechain-qt (GUI, 64-bit) or bin/64/slatechaind (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run pbs-qt.exe.
+Unpack the files into a directory, and then run slatechain-qt.exe.
 
 ### Need Help?
 
-* See the documentation at the [PBS Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [SLTC Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [PBS Forum](http://forum.pbs.org/).
-* Join one of our Slack groups [PBS Slack Groups](https://pbs.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [SLTC Forum](http://forum.slatechain.org/).
+* Join one of our Slack groups [SLTC Slack Groups](https://slatechain.org/slack-logins/).
 
 Building
 ---------------------
-The following are developer notes on how to build PBS on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build SLTC on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -37,7 +37,7 @@ The following are developer notes on how to build PBS on your native platform. T
 
 Development
 ---------------------
-The PBS repo's [root README](https://github.com/PBS-Project/PBS/blob/master/README.md) contains relevant information on the development process and automated testing.
+The SLTC repo's [root README](https://github.com/SLTC-Project/SLTC/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -51,7 +51,7 @@ The PBS repo's [root README](https://github.com/PBS-Project/PBS/blob/master/READ
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [PBS](http://forum.pbs.org/) forum.
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [SLTC](http://forum.slatechain.org/) forum.
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

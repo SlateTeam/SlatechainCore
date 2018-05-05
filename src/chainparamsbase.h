@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between pbs-cli and pbsd)
- * of a given instance of the PBS system.
+ * CBaseChainParams defines the base parameters (shared between slatechain-cli and slatechaind)
+ * of a given instance of the SLTC system.
  */
 class CBaseChainParams
 {

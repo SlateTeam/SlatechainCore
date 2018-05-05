@@ -590,8 +590,8 @@
         <translation>送出錢幣到 PIVX 地址</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pbs: URIs)</source>
-        <translation>請求付款 (會產生 QR Code跟 pbs 位址)</translation>
+        <source>Request payments (generates QR codes and slatechain: URIs)</source>
+        <translation>請求付款 (會產生 QR Code跟 slatechain 位址)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -952,6 +952,6 @@
     </message>
     </context>
 <context>
-    <name>pbs-core</name>
+    <name>slatechain-core</name>
     </context>
 </TS>

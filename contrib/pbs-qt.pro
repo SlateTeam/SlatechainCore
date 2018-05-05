@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/obfuscation-relay.h \
            src/obfuscation.h \
-           src/pbs-config.h \
+           src/slatechain-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -131,7 +131,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/pbs-config.h \
+           src/config/slatechain-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
            src/crypto/hmac_sha512.h \
@@ -333,7 +333,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/pbs.moc \
+           src/qt/slatechain.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -374,9 +374,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
-           src/pbs-cli.cpp \
-           src/pbs-tx.cpp \
-           src/pbs.cpp \
+           src/slatechain-cli.cpp \
+           src/slatechain-tx.cpp \
+           src/slatechain.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -471,8 +471,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/obfuscationconfig.cpp \
-           src/qt/pbs.cpp \
-           src/qt/pbsstrings.cpp \
+           src/qt/slatechain.cpp \
+           src/qt/slatechainstrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -550,7 +550,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_pbs.cpp \
+           src/test/test_slatechain.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -641,21 +641,21 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/pbs.qrc src/qt/pbs_locale.qrc
+RESOURCES += src/qt/slatechain.qrc src/qt/slatechain_locale.qrc
 
-TRANSLATIONS += src/qt/locale/pbs_bg.ts \
-                src/qt/locale/pbs_de.ts \
-                src/qt/locale/pbs_en.ts \
-                src/qt/locale/pbs_es.ts \
-                src/qt/locale/pbs_fi.ts \
-                src/qt/locale/pbs_fr.ts \
-                src/qt/locale/pbs_it.ts \
-                src/qt/locale/pbs_ja.ts \
-                src/qt/locale/pbs_pl.ts \
-                src/qt/locale/pbs_pt.ts \
-                src/qt/locale/pbs_ru.ts \
-                src/qt/locale/pbs_sk.ts \
-                src/qt/locale/pbs_sv.ts \
-                src/qt/locale/pbs_vi.ts \
-                src/qt/locale/pbs_zh_CN.ts \
-                src/qt/locale/pbs_zh_TW.ts
+TRANSLATIONS += src/qt/locale/slatechain_bg.ts \
+                src/qt/locale/slatechain_de.ts \
+                src/qt/locale/slatechain_en.ts \
+                src/qt/locale/slatechain_es.ts \
+                src/qt/locale/slatechain_fi.ts \
+                src/qt/locale/slatechain_fr.ts \
+                src/qt/locale/slatechain_it.ts \
+                src/qt/locale/slatechain_ja.ts \
+                src/qt/locale/slatechain_pl.ts \
+                src/qt/locale/slatechain_pt.ts \
+                src/qt/locale/slatechain_ru.ts \
+                src/qt/locale/slatechain_sk.ts \
+                src/qt/locale/slatechain_sv.ts \
+                src/qt/locale/slatechain_vi.ts \
+                src/qt/locale/slatechain_zh_CN.ts \
+                src/qt/locale/slatechain_zh_TW.ts

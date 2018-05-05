@@ -7,12 +7,12 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/pbs
-src/pbsd
-src/pbs-cli
-src/pbs-tx
-src/test/test_pbs
-src/qt/test/test_pbs-qt
+src/slatechain
+src/slatechaind
+src/slatechain-cli
+src/slatechain-tx
+src/test/test_slatechain
+src/qt/test/test_slatechain-qt
 
 # autoreconf
 Makefile.in
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/pbs-config.h
-src/config/pbs-config.h.in
+src/config/slatechain-config.h
+src/config/slatechain-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -62,7 +62,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.pbs
+.slatechain
 *.a
 *.pb.cc
 *.pb.h
@@ -81,12 +81,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-pbs-qt
+slatechain-qt
 PIVX-Qt.app
 
 # Unit-tests
 Makefile.test
-pbs-qt_test
+slatechain-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -103,7 +103,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_pbs.coverage/
+test_slatechain.coverage/
 total.coverage/
 coverage_percent.txt
 

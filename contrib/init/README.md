@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: pbsd.service
-Upstart: pbsd.conf
-OpenRC:  pbsd.openrc
-         pbsd.openrcconf
-CentOS:  pbsd.init
+SystemD: slatechaind.service
+Upstart: slatechaind.conf
+OpenRC:  slatechaind.openrc
+         slatechaind.openrcconf
+CentOS:  slatechaind.init
 
 have been made available to assist packagers in creating node packages here.
 

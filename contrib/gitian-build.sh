@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/pbs-project/pbs
+url=https://github.com/slatechain-project/slatechain
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the pbs, gitian-builder, gitian.sigs, and pbs-detached-sigs.
+Run this script from the directory containing the slatechain, gitian-builder, gitian.sigs, and slatechain-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/pbs-project/pbs
+-u|--url	Specify the URL of the repository. Default is https://github.com/slatechain-project/slatechain
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -232,8 +232,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/pbs-project/gitian.sigs.git
-    git clone https://github.com/pbs-project/pbs-detached-sigs.git
+    git clone https://github.com/slatechain-project/gitian.sigs.git
+    git clone https://github.com/slatechain-project/slatechain-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./pbs
+pushd ./slatechain
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./pbs-binaries/${VERSION}
+	mkdir -p ./slatechain-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../pbs/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../slatechain/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit pbs=${COMMIT} --url pbs=${url} ../pbs/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../pbs/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/pbs-*.tar.gz build/out/src/pbs-*.tar.gz ../pbs-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit slatechain=${COMMIT} --url slatechain=${url} ../slatechain/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../slatechain/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/slatechain-*.tar.gz build/out/src/slatechain-*.tar.gz ../slatechain-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit pbs=${COMMIT} --url pbs=${url} ../pbs/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../pbs/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/pbs-*-win-unsigned.tar.gz inputs/pbs-win-unsigned.tar.gz
-	    mv build/out/pbs-*.zip build/out/pbs-*.exe ../pbs-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit slatechain=${COMMIT} --url slatechain=${url} ../slatechain/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../slatechain/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/slatechain-*-win-unsigned.tar.gz inputs/slatechain-win-unsigned.tar.gz
+	    mv build/out/slatechain-*.zip build/out/slatechain-*.exe ../slatechain-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit pbs=${COMMIT} --url pbs=${url} ../pbs/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../pbs/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/pbs-*-osx-unsigned.tar.gz inputs/pbs-osx-unsigned.tar.gz
-	    mv build/out/pbs-*.tar.gz build/out/pbs-*.dmg ../pbs-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit slatechain=${COMMIT} --url slatechain=${url} ../slatechain/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../slatechain/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/slatechain-*-osx-unsigned.tar.gz inputs/slatechain-osx-unsigned.tar.gz
+	    mv build/out/slatechain-*.tar.gz build/out/slatechain-*.dmg ../slatechain-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../pbs/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../slatechain/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../pbs/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../slatechain/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../pbs/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../slatechain/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../pbs/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../slatechain/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../pbs/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../slatechain/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../pbs/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../pbs/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/pbs-*win64-setup.exe ../pbs-binaries/${VERSION}
-	    mv build/out/pbs-*win32-setup.exe ../pbs-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../slatechain/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../slatechain/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/slatechain-*win64-setup.exe ../slatechain-binaries/${VERSION}
+	    mv build/out/slatechain-*win32-setup.exe ../slatechain-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../pbs/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../pbs/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/pbs-osx-signed.dmg ../pbs-binaries/${VERSION}/pbs-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../slatechain/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../slatechain/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/slatechain-osx-signed.dmg ../slatechain-binaries/${VERSION}/slatechain-${VERSION}-osx.dmg
 	fi
 	popd
 
