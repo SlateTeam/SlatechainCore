@@ -1,0 +1,26 @@
+[Unit]
+Description=SLTC's distributed currency daemon
+After=network.target
+
+[Service]
+User=slatechain
+Group=slatechain
+
+Type=forking
+PIDFile=/var/lib/slatechaind/slatechaind.pid
+
+ExecStart=/usr/bin/slatechaind -daemon -pid=/var/lib/slatechaind/slatechaind.pid \
+          -conf=/etc/slatechain/slatechain.conf -datadir=/var/lib/slatechaind
+
+ExecStop=-/usr/bin/slatechain-cli -conf=/etc/slatechain/slatechain.conf \
+         -datadir=/var/lib/slatechaind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
