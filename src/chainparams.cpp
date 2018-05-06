@@ -53,10 +53,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (0, uint256("0x00000728d4bf5d90dccac8db95522d0b98ce50660741fd74d2712c6ce5106602"));
+        (0, uint256("0000018cad6d79df8882d41ba4236e2d875fecf7aa1cf36d47bb07d9fd39c2bb"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1516792852, // * UNIX timestamp of last checkpoint block
+    1525566005, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
     //   (the tx=... number in the SetBestChain debug.log lines)
     250        // * estimated number of transactions per day after checkpoint
@@ -125,21 +125,21 @@ public:
         pchMessageStart[2] = 0xfd;
         pchMessageStart[3] = 0xe9;
         vAlertPubKey = ParseHex("03a0b2d20438042d31ed87293447ddcc594a32ee27369bc71d7ca3a824e97b7fe4");
-        nDefaultPort = 51572;
+        nDefaultPort = 13888;
         bnProofOfWorkLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000"); // SLTC starting difficulty is 1 / 2^12
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 210000000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 24 * 60 * 60; // SLTC: 1 day
-        nTargetSpacing = 5 * 60;  // SLTC: 5 minutes
-        nLastPOWBlock = 10000;
+        nTargetTimespan = 2 * 75; // SLTC: every blk
+        nTargetSpacing = 2 * 75;  // SLTC: 150 seconds
+        nLastPOWBlock = 25000;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 45500000 * COIN;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -152,35 +152,74 @@ public:
 
               vMerkleTree:  444ab5ec2a391b3d2125abb8bd3b121a8ed4705f9782526d79150f64fbac9c26
          */
-        const char* pszTimestamp = "U.S. News & World Report Jan. 19, 2018 Shutdown Standoff Continues as Spending Bill Loses Support in the Senate";
+        const char* pszTimestamp = "slate chain born";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 250 * COIN;
+        txNew.vout[0].nValue = 1 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("031173ba859eb645cbd87b658f2dcbdb48ba0bf830158bb1d5f7a29260dc32a229") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1516792852;
+        genesis.nTime = 1525566005;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 6837474;
+        genesis.nNonce = 7500603;
+	
+	MineGenesis(genesis);
+	/*
+       // MineGenesis(genesis);
 
-//        MineGenesis(genesis);
-
-//        std::cout << genesis.ToString() << std::endl;
-
+        //std::cout << genesis.ToString() << std::endl;
+                // calculate Genesis Block
+                // Reset genesis
+                consensus.hashGenesisBlock = uint256S("0x");
+                std::cout << std::string("Begin calculating Mainnet Genesis Block:\n");
+                if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
+                    LogPrintf("Calculating Mainnet Genesis Block:\n");
+                    arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
+                    uint256 hash;
+                    genesis.nNonce = 0;
+                    // This will figure out a valid hash and Nonce if you're
+                    // creating a different genesis block:
+                    // uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+                    // hashTarget.SetCompact(genesis.nBits, &fNegative, &fOverflow).getuint256();
+                    // while (genesis.GetHash() > hashTarget)
+                    while (UintToArith256(genesis.GetHash()) > hashTarget)
+                    {
+                        ++genesis.nNonce;
+                        if (genesis.nNonce == 0)
+                        {
+                            LogPrintf("NONCE WRAPPED, incrementing time");
+                            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+                            ++genesis.nTime;
+                        }
+                        if (genesis.nNonce % 10000 == 0)
+                        {
+                            LogPrintf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
+                            // std::cout << strNetworkID << " nonce: " << genesis.nNonce << " time: " << genesis.nTime << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
+                        }
+                    }
+                    std::cout << "Mainnet ---\n";
+                    std::cout << "  nonce: " << genesis.nNonce <<  "\n";
+                    std::cout << "   time: " << genesis.nTime << "\n";
+                    std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
+                    std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
+                    // Mainnet --- nonce: 296277 time: 1390095618 hash: 000000bdd771b14e5a031806292305e563956ce2584278de414d9965f6ab54b0
+                }
+                std::cout << std::string("Finished calculating Mainnet Genesis Block:\n");
+	*/
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000728d4bf5d90dccac8db95522d0b98ce50660741fd74d2712c6ce5106602"));
-        assert(genesis.hashMerkleRoot == uint256("0x444ab5ec2a391b3d2125abb8bd3b121a8ed4705f9782526d79150f64fbac9c26"));
+        assert(hashGenesisBlock == uint256("0000018cad6d79df8882d41ba4236e2d875fecf7aa1cf36d47bb07d9fd39c2bb"));
+        assert(genesis.hashMerkleRoot == uint256("118251bc7879ce0413c90bace314e86b218ba9059ec0aa5d03c4e441d0ee5a9e"));
 
-        vSeeds.push_back(CDNSSeedData("45.76.143.123", "45.76.143.123"));
-        vSeeds.push_back(CDNSSeedData("45.77.255.46", "45.77.255.46"));
+        //vSeeds.push_back(CDNSSeedData("45.76.143.123", "45.76.143.123"));
+        //vSeeds.push_back(CDNSSeedData("45.77.255.46", "45.77.255.46"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 30);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 34);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
@@ -189,7 +228,7 @@ public:
 //        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fRequireRPCPassword = true;
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -201,7 +240,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "024a933d01e24928e15043c1c083b6454020fc864d56c2f977be9b38da2e6f4ceb";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
-        nStartMasternodePayments = 600; // Start after 600 blocks
+        nStartMasternodePayments = 2000; // Start after 2000 blocks
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const

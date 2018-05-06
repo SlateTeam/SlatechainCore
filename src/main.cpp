@@ -1621,22 +1621,29 @@ int64_t GetBlockValue(int nHeight)
 
     if (nHeight == 0) {
         nSubsidy = 1 * COIN;
-    } else if(nHeight == 1) {
-        nSubsidy = 100000 * COIN;
+    } else if(nHeight == 1) { //premine here
+        nSubsidy = 2500000 * COIN;
     } else if (nHeight <= 100) {
-        nSubsidy = 0 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK()) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 25921 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 34562 && nHeight >= 25922) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 43203 && nHeight >= 34563) {
-        nSubsidy = 40 * COIN;
-    } else if (nHeight <= 51844 && nHeight >= 43204) {
-        nSubsidy = 35 * COIN;
-    } else if (nHeight <= 60485 && nHeight >= 51845) {
-        nSubsidy = 30 * COIN;
+        nSubsidy = 1 * COIN;
+    } else if (nHeight <= 500) {
+	nSubsidy = 3 * COIN;
+    } else if (nHeight <= 800) {
+	nSubsidy = 5 * COIN;
+    } else if (nHeight <= 2000) {
+	nSubsidy = 7 * COIN;
+    } else if (nHeight <= 25000) { //end pow phase
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 380000) {
+        nSubsidy = 24 * COIN;
+    } else if (nHeight <= 570000) {
+        nSubsidy = 12 * COIN;
+    } else if (nHeight <= 760000) {
+        nSubsidy = 6 * COIN;
+    } else if (nHeight <= 950000) {
+        nSubsidy = 3 * COIN;
+    } else if (nHeight <= 1140000) {
+        nSubsidy = 1 * COIN;
+    /*
     } else if (nHeight <= 69127 && nHeight >= 60486) {
         nSubsidy = 25 * COIN;
     } else if (nHeight <= 77767 && nHeight >= 69127) {
@@ -1645,8 +1652,9 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 15 * COIN;
     } else if (nHeight <= 95049 && nHeight >= 86409) {
         nSubsidy = 10 * COIN;
-    } else if (nHeight >= 95050) {
-        nSubsidy = 5 * COIN;
+	*/
+    } else if (nHeight >= 1140000) {
+        nSubsidy = 0 * COIN;
     } else {
         nSubsidy = 0 * COIN;
     }
@@ -1663,7 +1671,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     }
 
     if (nHeight > Params().StartMasternodePayments()) {
-        ret = blockValue * .7;
+        ret = blockValue * .5;
     }
 
     return ret;
