@@ -167,7 +167,7 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 7500603;
 	
-	MineGenesis(genesis);
+//	MineGenesis(genesis);
 	/*
        // MineGenesis(genesis);
 
@@ -356,7 +356,7 @@ public:
 
 //        MineGenesis(genesis);
 
-        assert(hashGenesisBlock == uint256("0x0000054925a7c4def590919e57a01857e8e42831e91acf78ac5223390cf9d80f"));
+       // assert(hashGenesisBlock == uint256("0x0000054925a7c4def590919e57a01857e8e42831e91acf78ac5223390cf9d80f"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
