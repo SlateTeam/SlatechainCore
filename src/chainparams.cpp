@@ -214,8 +214,8 @@ public:
         assert(hashGenesisBlock == uint256("000005be8d051fbdca831c861b0d6b4b8f9235a06d8d46120dc19c1b3aa31a4a"));
         assert(genesis.hashMerkleRoot == uint256("118251bc7879ce0413c90bace314e86b218ba9059ec0aa5d03c4e441d0ee5a9e"));
 
-        //vSeeds.push_back(CDNSSeedData("45.76.143.123", "45.76.143.123"));
-        //vSeeds.push_back(CDNSSeedData("45.77.255.46", "45.77.255.46"));
+        vSeeds.push_back(CDNSSeedData("149.28.66.151", "149.28.66.151"));
+        vSeeds.push_back(CDNSSeedData("149.28.66.226", "149.28.66.226"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 15);
@@ -228,7 +228,7 @@ public:
 //        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fRequireRPCPassword = true;
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
