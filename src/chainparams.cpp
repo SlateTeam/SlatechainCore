@@ -53,7 +53,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (0, uint256("0000018cad6d79df8882d41ba4236e2d875fecf7aa1cf36d47bb07d9fd39c2bb"));
+        (0, uint256("000005be8d051fbdca831c861b0d6b4b8f9235a06d8d46120dc19c1b3aa31a4a"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1525566005, // * UNIX timestamp of last checkpoint block
@@ -163,11 +163,11 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1525566005;
+        genesis.nTime = 1525566006;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 7500603;
+        genesis.nNonce = 7619461;
 	
-//	MineGenesis(genesis);
+	//MineGenesis(genesis);
 	/*
        // MineGenesis(genesis);
 
@@ -211,7 +211,7 @@ public:
                 std::cout << std::string("Finished calculating Mainnet Genesis Block:\n");
 	*/
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000018cad6d79df8882d41ba4236e2d875fecf7aa1cf36d47bb07d9fd39c2bb"));
+        assert(hashGenesisBlock == uint256("000005be8d051fbdca831c861b0d6b4b8f9235a06d8d46120dc19c1b3aa31a4a"));
         assert(genesis.hashMerkleRoot == uint256("118251bc7879ce0413c90bace314e86b218ba9059ec0aa5d03c4e441d0ee5a9e"));
 
         //vSeeds.push_back(CDNSSeedData("45.76.143.123", "45.76.143.123"));
@@ -228,7 +228,7 @@ public:
 //        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fRequireRPCPassword = true;
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
