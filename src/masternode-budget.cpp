@@ -823,20 +823,39 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
         nSubsidy = 0 * COIN;
     }
 	*/
-      if (nHeight <= 25000 && nHeight >= 2000) { //end pow phase
-        nSubsidy = 20 * COIN;
-    } else if (nHeight <= 380000) {
+     if (nHeight <= 25000 && nHeight >= 2000) { //end pow phase
+	nSubsidy = 20 * COIN;
+    } else if (nHeight <= 190000) {
         nSubsidy = 24 * COIN;
+    } else if (nHeight <= 380000) {
+	nSubsidy = 20 * COIN;
     } else if (nHeight <= 570000) {
-        nSubsidy = 12 * COIN;
+        nSubsidy = 30 * COIN;
     } else if (nHeight <= 760000) {
-        nSubsidy = 6 * COIN;
+        nSubsidy = 24 * COIN;
     } else if (nHeight <= 950000) {
-        nSubsidy = 3 * COIN;
+        nSubsidy = 24 * COIN;
     } else if (nHeight <= 1140000) {
-        nSubsidy = 1 * COIN;
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 1330000) {
+        nSubsidy = 16 * COIN;
+    } else if (nHeight <= 1520000) {
+        nSubsidy = 12 * COIN;
+    } else if (nHeight <= 1710000) {
+        nSubsidy = 8 * COIN;
+    } else if (nHeight <= 1900000) {
+        nSubsidy = 16 * COIN;
+
+
+
     /*
     } else if (nHeight <= 69127 && nHeight >= 60486) {
+    } else if (nHeight <= 1140000) {
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 1140000) {
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 1140000) {
+        nSubsidy = 20 * COIN;
         nSubsidy = 25 * COIN;
     } else if (nHeight <= 77767 && nHeight >= 69127) {
         nSubsidy = 20 * COIN;
@@ -845,11 +864,26 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
     } else if (nHeight <= 95049 && nHeight >= 86409) {
         nSubsidy = 10 * COIN;
 	*/
-    } else if (nHeight >= 1140000) {
-        nSubsidy = 0 * COIN;
+    } else if (nHeight >= 2090000) {
+        nSubsidy = 8 * COIN;
+    } else if (nHeight >= 2280000) {
+        nSubsidy = 4 * COIN;
+    } else if (nHeight >= 2470000) {
+        nSubsidy = 2 * COIN;
+    } else if (nHeight >= 2660000) {
+	nSubsidy = 1 * COIN;
+    } else if (nHeight >= 2850000) {
+	nSubsidy = 0 * COIN;
     } else {
         nSubsidy = 0 * COIN;
     }
+    /*
+    } else if (nHeight <= 69127 && nHeight >= 60486) {
+        nSubsidy = 25 * COIN;
+    } else if (nHeight <= 77767 && nHeight >= 69127) {
+        nSubsidy = 20 * COIN;
+    } else if (nHeight <= 86408 && nH
+	*/
     // Amount of blocks in a months period of time (using 1 minutes per) = (150*24*30)
     if (nHeight <= 172800) {
         return 648000 * COIN;
