@@ -47,8 +47,8 @@ SLTC Coin Features
 <tr><td>Phase 2</td><td>190,000-380,000</td><td>20 SLTC</td><td>50% (10 SLTC)</td><td>50% (10 SLTC)</td></tr>
 <tr><td>Phase 3</td><td>380,000-570,000</td><td>30 SLTC</td><td>50% (15 SLTC)</td><td>70% (15 SLTC)</td></tr>
 <tr><td>Phase 4</td><td>570,000-950,000</td><td>24 SLTC</td><td>50% (12 SLTC)</td><td>50% (12 SLTC)</td></tr>
-<tr><td>Phase 5</td><td>950,000-1.14M</td><td>20 SLTC</td><td>50% (10 SLTC)</td><td>70% (10 SLTC)</td></tr>
-<tr><td>Phase 6</td><td>1.14M-1.33M</td><td>16 SLTC</td><td>50% (8 SLTC)</td><td>70% (8 SLTC)</td></tr>
+<tr><td>Phase 5</td><td>950,000-1.14M</td><td>20 SLTC</td><td>50% (10 SLTC)</td><td>50% (10 SLTC)</td></tr>
+<tr><td>Phase 6</td><td>1.14M-1.33M</td><td>16 SLTC</td><td>50% (8 SLTC)</td><td>50% (8 SLTC)</td></tr>
 Halves Every 190k blocks after block 1.33M
 </table>
 
