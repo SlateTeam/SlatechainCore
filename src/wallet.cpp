@@ -1463,7 +1463,7 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
                     if (found && fMasterNode) found = pcoin->vout[i].nValue != 5000 * COIN; // do not use Hot MN funds
                 } else if (nCoinType == ONLY_5000) {
-                    found = pcoin->vout[i].nValue == 5000 * COIN;
+                    found = pcoin->vout[i].nValue == 6000 * COIN;
                 } else {
                     found = true;
                 }
