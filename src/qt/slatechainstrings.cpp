@@ -209,7 +209,7 @@ QT_TRANSLATE_NOOP("slatechain-core", ""
 QT_TRANSLATE_NOOP("slatechain-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("slatechain-core", "(51572 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("slatechain-core", "(13888 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("slatechain-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("slatechain-core", "(default: 1)"),
 QT_TRANSLATE_NOOP("slatechain-core", "(must be 51572 for mainnet)"),
