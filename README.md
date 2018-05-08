@@ -6,16 +6,16 @@ SLTC Coin Features
 - Time Based Masternode Rewards - people who hold MN for a longer time can be rewarded more than others.
 - Fast transactions or Flash Send.
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
-  with collateral of 5K SLTC
+  with collateral of 6K SLTC
 
 ### Coin Specs
 <table>
 <tr><td>Algo</td><td>Lyra2z</td></tr>
-<tr><td>Block Time</td><td>300 Seconds</td></tr>
+<tr><td>Block Time</td><td>150 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>964,000 SLTC</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
-<tr><td>Premine</td><td>100,000 SLTC</td></tr>
+<tr><td>Max Coin Supply (PoW Phase)</td><td>48,000,000 SLTC</td></tr>
+
+<tr><td>Premine</td><td>2,500,000 (minus swap) SLTC</td></tr>
 </table>
 
 ### Reward Distribution
