@@ -23,36 +23,35 @@ SLTC Coin Features
 <table>
 <th colspan=4>PoW Phase</th>
 <tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th><th>Duration (Days)</th></tr>
-<tr><td>1-100</td><td>100,000 SLTC</td><td>Initial Premine</td><td>0 Days</td></tr>
-<tr><td>100-17280</td><td>50 SLTC</td><td rowspan=2>Open Mining</td><td rowspan=2> Approx 60 Days</td></tr>
+<tr><td>0-2</td><td>2,500,000 SLTC</td><td>Initial Premine</td><td>0 Days</td></tr>
+<tr><td>2-100</td><td>1 SLTC</td><td>Initial Premine</td><td>0 Days</td></tr>
+<tr><td>200-500</td><td>3 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2> Approx 60 Days</td></tr>
+<tr><td>501-800</td><td>5 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2> Approx 60 Days</td></tr>
+<tr><td>801-2000</td><td>7 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2> Approx 60 Days</td></tr>
+<tr><td>2001-25,000</td><td>20 SLTC</td><td rowspan=2>Open Mining</td><td rowspan=2> Approx 60 Days</td></tr>
 <tr><th colspan=4>PoS Phase</th></tr>
 <tr><th>Block Height</th><th colspan=3>Reward Amount</th></tr>
-<tr><td>17281-Infinite</td><td colspan=3>Starting from 50 SLTC and ending with 5 SLTC over fixed perioud of blocks</td></tr>
-</table>
 
 ### PoW Rewards Breakdown
 
 <table>
 <th>Block Height</th><th>Miner</th><th>Masternodes</th>
-<tr><td>100-17280</td><td>30% (15 SLTC)</td><td>70% (35 SLTC)</td></tr>
+<tr><td>2001-25,000</td><td>50% (10 SLTC)</td><td>50% (10 SLTC)</td></tr>
 </table>
 
 ### PoS Rewards Breakdown
 
 <table>
 <th>Phase</th><th>Block Height</th><th>Reward</th><th>Stakers</th><th>Masternodes</th>
-<tr><td>Phase 1</td><td>17281-25921</td><td>50 SLTC</td><td>30% (15 SLTC)</td><td>70% (35 SLTC)</td></tr>
-<tr><td>Phase 2</td><td>25922-34562</td><td>45 SLTC</td><td>30% (13.5 SLTC)</td><td>70% (31.5 SLTC)</td></tr>
-<tr><td>Phase 3</td><td>34563-43203</td><td>40 SLTC</td><td>30% (12 SLTC)</td><td>70% (28 SLTC)</td></tr>
-<tr><td>Phase 4</td><td>43204-51844</td><td>35 SLTC</td><td>30% (10.5 SLTC)</td><td>70% (24.5 SLTC)</td></tr>
-<tr><td>Phase 5</td><td>51845-60485</td><td>30 SLTC</td><td>30% (9 SLTC)</td><td>70% (21 SLTC)</td></tr>
-<tr><td>Phase 6</td><td>60486-69126</td><td>25 SLTC</td><td>30% (7.5 SLTC)</td><td>70% (17.5 SLTC)</td></tr>
-<tr><td>Phase 7</td><td>69127-77767</td><td>20 SLTC</td><td>30% (6 SLTC)</td><td>70% (14 SLTC)</td></tr>
-<tr><td>Phase 8</td><td>77768-86408</td><td>15 SLTC</td><td>30% (4.5 SLTC)</td><td>70% (10.5 SLTC)</td></tr>
-<tr><td>Phase 9</td><td>86409-95049</td><td>10 SLTC</td><td>30% (3 SLTC)</td><td>70% (7 SLTC)</td></tr>
-<tr><td>Phase X</td><td>95050-Infinite</td><td>5 SLTC</td><td>30% (1.5 SLTC)</td><td>70% (3.5 SLTC)</td></tr>
+<tr><td>Phase 1</td><td>25,000-190,000</td><td>24 SLTC</td><td>50% (12 SLTC)</td><td>50% (12 SLTC)</td></tr>
+<tr><td>Phase 2</td><td>190,000-380,000</td><td>20 SLTC</td><td>50% (10 SLTC)</td><td>50% (10 SLTC)</td></tr>
+<tr><td>Phase 3</td><td>380,000-570,000</td><td>30 SLTC</td><td>50% (15 SLTC)</td><td>70% (15 SLTC)</td></tr>
+<tr><td>Phase 4</td><td>570,000-950,000</td><td>24 SLTC</td><td>50% (12 SLTC)</td><td>50% (12 SLTC)</td></tr>
+<tr><td>Phase 5</td><td>950,000-1.14M</td><td>20 SLTC</td><td>50% (10 SLTC)</td><td>70% (10 SLTC)</td></tr>
+<tr><td>Phase 6</td><td>1.14M-1.33M</td><td>16 SLTC</td><td>50% (8 SLTC)</td><td>70% (8 SLTC)</td></tr>
+Halves Every 190k blocks after block 1.33M
 </table>
 
 ### MN Payments
 
-- Masternode payments start from block 600.
+- Masternode payments start from block 2001.
