@@ -25,9 +25,9 @@ SLTC Coin Features
 <tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th><th>Duration (Days)</th></tr>
 <tr><td>0-2</td><td>2,500,000 SLTC</td><td>Initial Premine</td><td>0 Days</td></tr>
 <tr><td>2-100</td><td>1 SLTC</td><td>Instamine Protection</td><td>0 Days</td></tr>
-<tr><td>200-500</td><td>3 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2> Approx 1 Days</td></tr>
-<tr><td>501-800</td><td>5 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2> Approx 1 Days</td></tr>
-<tr><td>801-2000</td><td>7 SLTC</td><td rowspan=2>Instamine Protection</td><td rowspan=2>Approx 1 Days</td></tr>
+<tr><td>200-500</td><td>3 SLTC</td><td rowspan=2>Instamine Protection</td><td></tr>
+<tr><td>501-800</td><td>5 SLTC</td><td rowspan=2>Instamine Protection</td><td></tr>
+<tr><td>801-2000</td><td>7 SLTC</td><td rowspan=2>Instamine Protection</td><td></tr>
 <tr><td>2001-25,000</td><td>20 SLTC</td><td rowspan=2>Open Mining</td><td rowspan=2> Approx 90 Days</td></tr>
 <tr><th colspan=4>PoS Phase</th></tr>
 <tr><th>Block Height</th><th colspan=3>Reward Amount</th></tr>
