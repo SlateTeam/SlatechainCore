@@ -135,8 +135,8 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 2 * 75; // SLTC: every blk
         nTargetSpacing = 2 * 75;  // SLTC: 150 seconds
-        nLastPOWBlock = 25000;
-        nMaturity = 100;
+        nLastPOWBlock = 27000;
+        nMaturity = 50;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
         nMaxMoneyOut = 45500000 * COIN;
